@@ -18,12 +18,15 @@ go get -d github.com/ethereum/go-ethereum
 This will add dependencies to ```go.mod``` file , transitive (indirect) as well 
 
 [//]: # (https://geth.ethereum.org/docs/dapp/native-bindings)
-## 2. Install abigen tool for generating Go binding from Solidity contracts
+## 2. 
+
+### 2.1. Install abigen tool for generating Go binding from Solidity contracts
 ```bash
 $ cd $GOPATH/src/github.com/ethereum/go-ethereum
 $ go build ./cmd/abigen
 ```
-
+### 2.2 Instal Solidity compiler `solc`
+https://docs.soliditylang.org/en/v0.8.17/installing-solidity.html#macos-packages
 
 ## 3. Generate ABI Specification from the contract using Solidity compiler `solc`
 ```bash
@@ -33,7 +36,7 @@ Generates JSON ABI spec `Storage.abi` in `build/` folder
 * Storage.bin
 * Storage.evm
 * Storage.sol_json.ast
-## 4. Generate Go bindings from ABI specs
+## 4. Generate Go bindings (Storage.go) from ABI specs
 ```bash
 abigen --abi build/Storage.abi --pkg main --type Storage --out Storage.go
 ```
