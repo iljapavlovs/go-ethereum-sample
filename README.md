@@ -33,7 +33,7 @@ https://docs.soliditylang.org/en/v0.8.17/installing-solidity.html#macos-packages
 solc --abi --bin --ast-compact-json --asm contracts/Storage.sol -o build
 ```
 Generates JSON ABI spec `Storage.abi` in `build/` folder
-* Storage.bin
+* Storage.bin (--bin flag) - compiled bytecode which is needed in order to deploy a contract onto EVM
 * Storage.evm
 * Storage.sol_json.ast
 ## 4. Generate Go bindings (Storage.go) from ABI specs
