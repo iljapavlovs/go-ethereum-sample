@@ -1,7 +1,7 @@
 ### Resources 
 * [The Smart Contract Creation Process](https://medium.com/@hayeah/diving-into-the-ethereum-vm-part-5-the-smart-contract-creation-process-cb7b6133b855) 
-* [https://medium.com/coinmonks/smart-contract-deploy-b98469e3e158](Smart Contract Deployment)
-* https://medium.com/@eiki1212/explaining-ethereum-contract-abi-evm-bytecode-6afa6e917c3b
+* [Smart Contract Deployment](https://medium.com/coinmonks/smart-contract-deploy-b98469e3e158)
+* [Explaining Ethereum Contract ABI & EVM Bytecode](https://medium.com/@eiki1212/explaining-ethereum-contract-abi-evm-bytecode-6afa6e917c3b)
 
 # Contract Compilation 
 ![img.png](docs/img.png)
