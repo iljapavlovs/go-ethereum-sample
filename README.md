@@ -28,7 +28,7 @@ $ go build ./cmd/abigen
 ### 2.2 Instal Solidity compiler `solc`
 https://docs.soliditylang.org/en/v0.8.17/installing-solidity.html#macos-packages
 
-## 3. Generate ABI Specification from the contract using Solidity compiler `solc`
+## 3. Generate ABI Specification from the contract using Solidity compiler `solc` in order to use ABI spec for Go binding generation
 ```bash
 solc --abi --bin --ast-compact-json --asm contracts/Storage.sol -o build
 ```

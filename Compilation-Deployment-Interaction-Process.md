@@ -4,9 +4,9 @@
 * [Explaining Ethereum Contract ABI & EVM Bytecode](https://medium.com/@eiki1212/explaining-ethereum-contract-abi-evm-bytecode-6afa6e917c3b)
 
 # Contract Compilation 
-![img.png](docs/img.png)
-![img_1.png](docs/img_1.png)
-![img_4.png](docs/img_4.png)
+![img.png](img/img.png)
+![img_1.png](img/img_1.png)
+![img_4.png](img/img_4.png)
 The compilation of a contract basically produces two results that specifically are:
 
 ## **Bytecode** 
@@ -20,7 +20,7 @@ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH2 0x41 JUMPI PUSH1 0x
 
 
 # Transaction Types
-![img_3.png](docs/img_3.png)
+![img_3.png](img/img_3.png)
 
 
 # Deployment Process
@@ -66,13 +66,13 @@ There is no special RPC call or transaction type to create a contract. The same 
 Depending on what parameters you specified, the transaction is interpreted differently by Ethereum. **To create a contract, the to address should be null (or left out).**
 
 Opening Etherscan, you should see that the input data for this transaction is the bytecode produced by the Solidity compiler:
-![img.png](docs/img_data.png)
+![img.png](img/img_data.png)
 
 
 ## Interacting with Contract
 For example, if you want to call a function in a smart contract with your JavaScript code, ABI plays a role as an intermediary between your JavaScript code and EVM bytecode to interact with each other. Below diagram shows the architecture of Contract ABI, EVM bytecode and outside components(dApp and network). The left side is a process of compiling and the right side is interacting.
 
-![img_2.png](docs/img_2.png)
+![img_2.png](img/img_2.png)
 
 Contract ABI defines function names and argument data types. It is used to encode contract calls for the EVM and to read data out of transactions. There is a clear specification of how to encode and decode Contract ABI. I will use the below function to describe the example of encoding.
 
