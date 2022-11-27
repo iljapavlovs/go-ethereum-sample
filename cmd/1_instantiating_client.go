@@ -76,8 +76,8 @@ func main() {
 	}
 
 	fmt.Println("BlockNumber: ", blockNum)
+
 	//blockNumConverted := new(big.Int).SetUint64(blockNum)
-	//
 	//q := ethereum.FilterQuery{
 	//	FromBlock: new(big.Int).Sub(blockNumConverted, big.NewInt(10)),
 	//	ToBlock:   blockNumConverted,
@@ -123,25 +123,31 @@ func sendTransaction(cl *ethclient.Client) error {
 	// Create a new transaction
 	tx := types.NewTx(
 		&types.DynamicFeeTx{
-			ChainID:   chainid,
-			Nonce:     nonce,
-			GasTipCap: tipCap,
-			GasFeeCap: feeCap,
+			ChainID: chainid,
+			Nonce:   nonce,
+			//TODO - not necessary to multiply by 2
+			GasTipCap: tipCap.Mul(tipCap, big.NewInt(2)),
+			GasFeeCap: feeCap.Mul(tipCap, big.NewInt(2)),
 			Gas:       gasLimit,
 			To:        &to,
 			Value:     value,
 			Data:      nil,
 		})
 	// Sign the transaction using our keys
-	signedTx, _ := types.SignTx(tx, types.NewLondonSigner(chainid), sk)
-
-	receipt, err := bind.WaitMined(context.Background(), cl, signedTx)
+	signedTx, err := types.SignTx(tx, types.NewLondonSigner(chainid), sk)
 	if err != nil {
 		panic(err)
 	}
 
-	println("TX Receipt: ", receipt)
-
 	// Send the transaction to our node
-	return cl.SendTransaction(context.Background(), signedTx)
+	err = cl.SendTransaction(context.Background(), signedTx)
+	if err != nil {
+		panic(err)
+	}
+	receipt, err := bind.WaitMined(context.Background(), cl, signedTx)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("TX Receipt: ", *receipt)
+	return err
 }
