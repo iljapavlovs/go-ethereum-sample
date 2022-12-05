@@ -63,6 +63,7 @@ func main() {
 	// check https://goerli.etherscan.io/tx/0x3da8d3d995298dfd2fe288ac82e14248e6714f20fd3684873e954b5ebdadb530
 	fmt.Printf("NonceAt: %d Nonce for 0x23b5613fc04949F4A53d1cc8d6BCCD21ffc38C11 Address for 7965747 blocknumber\n", nonce)
 
+	// GET PENDING NONCE - the next nonce
 	pendingNonce, err := client.PendingNonceAt(context.Background(), addr)
 	fmt.Println("PendingNonce: ", pendingNonce)
 
